@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 function EditEmployee() {
@@ -14,18 +13,62 @@ function EditEmployee() {
         Update
       </button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal 
+        show={show} 
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Update Employe</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+        <form id="edit-modal" class="w-full max-w-sm">
+          <div class="md:flex md:items-center mb-6">
+            <div class="md:w-1/3">
+              <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="name">
+                Full Name
+              </label>
+            </div>
+            <div className="md:w-2/3">
+              <input 
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" 
+                id="name" 
+                type="text" 
+                value="Your name" 
+              />
+            </div>
+          </div>
+          <div class="md:flex md:items-center mb-6">
+            <div class="md:w-1/3">
+              <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="role">
+                Role
+              </label>
+            </div>
+            <div className="md:w-2/3">
+              <input 
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" 
+                id="role" 
+                type="text" 
+                value="Your role" 
+              />
+            </div>
+          </div>
+        </form>
+        </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <button 
+            className="bg-slate-400 hover:bg-slate-500 text-white font-bold py-2 px-4 rounded" 
+            onClick={handleClose}
+          >
             Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
+          </button>
+          <button 
+            className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded" 
+            form="edit-modal"
+          >
+            Update
+          </button>
         </Modal.Footer>
       </Modal>
     </>
