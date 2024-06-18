@@ -1,10 +1,12 @@
 import './App.css';
+import AddEmployee from './components/AddEmployee';
+import EditEmployee from './components/EditEmployee';
 import Employee from './components/Employee';
 import { useState } from 'react';
-// import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
-  const [role, setRole] = useState('dev');
+  const [role, setRole] = useState('');
   const [employees, setEmplyees] = useState(
     [
       {
@@ -42,6 +44,12 @@ function App() {
         name:"Michael", 
         role:"Engineer", 
         img:"https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg"
+      },
+      {
+        id: 7,
+        name:"Carolina", 
+        role:"QA", 
+        img:"https://images.pexels.com/photos/1090387/pexels-photo-1090387.jpeg"
       }
     ]
   );
@@ -57,6 +65,16 @@ function App() {
     setEmplyees(updatedEmployees);
   }
 
+  function newEmployee(name, role, img) {
+   const NewEmployee = {
+      id: uuidv4(),
+      name: name,
+      role: role, 
+      img: img
+    }
+    setEmplyees([...employees, NewEmployee])
+  }
+
   const showEmployess = true;
   return (
     <div className="App">
@@ -68,23 +86,36 @@ function App() {
           />
         <div className="flex flex-wrap justify-center">
            {employees.map((employee) => {
+            // const EditEmployee = (
+            //   <EditEmployee 
+            //     id={employee.id}
+            //     name={employee.name} 
+            //     role={employee.role} 
+            //     updateEmployee={updateEmployee}
+            //   />
+            // );
             return (
-              <Employee 
-              key={employee.id}
-              id={employee.id}
-              name={employee.name} 
-              role={employee.role} 
-              img={employee.img}
-              updateEmployee={updateEmployee}
+              <Employee
+                key={employee.id}
+                id={employee.id}
+                name={employee.name}
+                role={employee.role}
+                img={employee.img}
+                editEmployee={<EditEmployee
+                  id={employee.id}
+                  name={employee.name}
+                  role={employee.role}
+                  updateEmployee={updateEmployee}
+                />}
               />
             )
            })}
         </div>
+        <AddEmployee newEmployee={newEmployee} />
         </>
-      )
-      :
-      <p>You cannot see the employees</p>
-      }
+      ) : (
+        <p>You cannot see the employees</p>
+      )}
     </div>
   );
 }
