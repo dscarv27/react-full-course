@@ -2,7 +2,7 @@ import '../App.css';
 import AddEmployee from '../components/AddEmployee';
 import EditEmployee from '../components/EditEmployee';
 import Employee from '../components/Employee';
-import Header from '../components/Header';
+// import Header from '../components/Header';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -83,14 +83,14 @@ function Employees() {
 
   const showEmployess = true;
   return (
-    <div className="App bg-gray-200 min-h-screen">
+    <div>
       {showEmployess ? (
         <>
           {/* <input type='text' onChange={(e) => {
             setRole(e.target.value);
             }}
           /> */}
-        <div className="flex flex-wrap justify-center my-2">
+        <div className="flex flex-wrap justify-center">
            {employees.map((employee) => {
             // const EditEmployee = (
             //   <EditEmployee 
