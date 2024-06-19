@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Employees from './pages/Employees';
 import Customers from './pages/Customers';
+import Dictionary from './components/Dictionary';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -13,6 +14,7 @@ function App() {
       <Header>
           <Routes>
             <Route path='/employees' element={<Employees />} />
+            <Route path='/dictionary' element={<Dictionary />} />
             <Route path='/customers' element={<Customers />} />
           </Routes>
       </Header>

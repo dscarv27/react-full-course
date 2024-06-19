@@ -14,6 +14,7 @@ import { NavLink } from 'react-router-dom';
 const navigation = [
   { name: 'Employees', href: '/Employees' },
   { name: 'Customers', href: '/Customers' },
+  { name: 'Dictionary', href: '/Dictionary' },
 ]
 
 function classNames(...classes) {
@@ -55,10 +56,10 @@ export default function Header(props) {
                           key={item.name}
                           to={item.href}
                           className={({isActive}) => {
-                            return 'rounded-md px-3 py-2 text-sm font-medium no-underline' +
+                            return 'rounded-md px-3 py-2 text-sm font-medium no-underline ' +
                             (!isActive 
-                              ? 'no-underline text-gray-300 hover:bg-gray-700 hover:text-white' 
-                              : 'no-underline bg-gray-900 text-white'
+                              ? ' no-underline text-gray-300 hover:bg-gray-700 hover:text-white' 
+                              : ' no-underline bg-gray-900 text-white'
                             )
                           }}
                         >
