@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 
-function EditEmployee(props) {
+function EditEmployee(props){
   const [name, setName] = useState(props.name);
   const [role, setRole] = useState(props.role);
 

@@ -15,13 +15,14 @@ const navigation = [
   { name: 'Employees', href: '/Employees' },
   { name: 'Customers', href: '/Customers' },
   { name: 'Dictionary', href: '/Dictionary' },
+  { name: 'Calendar', href: '/Calendar' },
 ]
 
-function classNames(...classes) {
+function classNames(...classes){
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Header(props) {
+export default function Header(props){
   return (
     <>
       <Disclosure as="nav" className="bg-gray-800">
@@ -89,10 +90,10 @@ export default function Header(props) {
                     key={item.name}
                     to={item.href}
                     className={({isActive}) => {
-                      return 'block rounded-md px-3 py-2 text-base font-medium no-underline' +
+                      return 'block rounded-md px-3 py-2 text-base font-medium no-underline ' +
                       (!isActive 
-                        ? 'no-underline text-gray-300 hover:bg-gray-700 hover:text-white' 
-                        : 'no-underline bg-gray-900 text-white'
+                        ? ' no-underline text-gray-300 hover:bg-gray-700 hover:text-white' 
+                        : ' no-underline bg-gray-900 text-white'
                       );
                     }}
                   >
@@ -105,7 +106,7 @@ export default function Header(props) {
         )}
       </Disclosure>
       <div className="bg-gray-200"> 
-        <div className="max-w-7xl mx-auto bg-gray-200 min-h-screen px-2 py-2">
+        <div className="max-w-7xl mx-auto bg-gray-200 min-h-screen px-3 py-2">
           {props.children}
         </div>
       </div>
